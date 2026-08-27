@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ---------- Document metadata ---------- -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vision of Love Charity System">
+  <title>Delete / Search | Vision of Love</title>
+  <!-- ---------- Shared CSS ---------- -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="">
+
+<!-- ============================================================
+     SHARED HEADER: Brand, sparkle and three-line navigation.
+     ============================================================ -->
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Vision of Love home">
+    <img class="brand-logo" src="LOGOS/logo.png" alt="Vision of Love logo">
+    <div>
+      <div class="brand-title">Vision of Love</div>
+      <div class="brand-subtitle">Charity System</div>
+    </div>
+  </a>
+
+  <div class="header-actions">
+    <div class="sparkle" aria-hidden="true">✧</div>
+    <button class="menu-button" id="menuButton" aria-label="Open navigation menu">
+      <img src="LOGOS/menu.png" alt="">
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================
+     SLIDE-OUT NAVIGATION: Only the five required destinations.
+     No Profile, Logout or Exit controls are included.
+     ============================================================ -->
+<div class="nav-overlay" id="navOverlay"></div>
+<aside class="nav-panel" id="navPanel" aria-hidden="true">
+  <button class="nav-close" id="navClose" aria-label="Close navigation">×</button>
+  <h2>Navigation</h2>
+
+  <a class="nav-link" href="index.html">
+    <img src="LOGOS/home.png" alt=""> Home
+  </a>
+  <a class="nav-link" href="distribution.html">
+    <img src="LOGOS/family.png" alt=""> Distribution / Family Records
+  </a>
+  <a class="nav-link" href="donation.html">
+    <img src="LOGOS/donation.png" alt=""> Donation
+  </a>
+  <a class="nav-link" href="delete-search.html">
+    <img src="LOGOS/search.png" alt=""> Delete / Search
+  </a>
+  <a class="nav-link" href="package-allocation.html">
+    <img src="LOGOS/package.png" alt=""> Package Allocation
+  </a>
+</aside>
+
+
+<!-- ============================================================
+     DELETE / SEARCH PAGE: Search a family record, display the
+     matching information, then require confirmation before delete.
+     ============================================================ -->
+<main class="page-main">
+  <div class="page-heading">
+    <h1>Delete / Search</h1>
+    <p>Search for an existing family record and delete it when required.</p>
+  </div>
+
+  <!-- ---------- Search form ---------- -->
+  <section class="panel">
+    <h2>Search Family Records</h2>
+    <form id="searchForm">
+      <div class="toolbar">
+        <input class="grow" id="searchValue" name="searchValue"
+               placeholder="Enter Family ID or another supported search value"
+               required>
+        <button class="primary-btn icon-btn" type="submit">
+          <img src="LOGOS/search.png" alt=""> Search
+        </button>
+      </div>
+    </form>
+    <div class="feedback" id="searchFeedback" role="status"></div>
+  </section>
+
+  <!-- ---------- Search result appears here ---------- -->
+  <section id="searchResult"></section>
+</main>
+
+
+<!-- ============================================================
+     FOOTER: Small system footer kept intentionally simple.
+     ============================================================ -->
+<footer class="site-footer">
+  Vision of Love Charity System
+</footer>
+
+<!-- ---------- Shared JavaScript ---------- -->
+<script src="script.js"></script>
+</body>
+</html>

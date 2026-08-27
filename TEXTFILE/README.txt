@@ -1,0 +1,1 @@
+These files are included to preserve the requested project structure. GitHub Pages cannot dynamically write to them; the Pages version uses browser localStorage for persistent testing and CSV download for export.

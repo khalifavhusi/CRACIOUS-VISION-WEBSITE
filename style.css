@@ -1,0 +1,368 @@
+/* ============================================================
+   VISION OF LOVE — GLOBAL STYLES
+   This file controls the entire visual design and responsive UI.
+   ============================================================ */
+
+/* ---------- 1. Theme variables ---------- */
+:root{
+  --purple:#5d22bd;
+  --purple-dark:#35105f;
+  --purple-soft:#f0e8ff;
+  --purple-text:#6424bd;
+  --text:#111116;
+  --muted:#555364;
+  --bg:#f8f6fb;
+  --white:#ffffff;
+  --border:#e7e2ee;
+  --danger:#c62828;
+  --success:#1f7a45;
+  --shadow:0 8px 24px rgba(38,18,70,.08);
+}
+
+/* ---------- 2. Base/reset styles ---------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.5;
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+
+/* ---------- 3. Header matching the supplied reference ---------- */
+.site-header{
+  height:138px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 55px;
+  position:relative;
+  z-index:20;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.brand-logo{
+  width:80px;
+  height:80px;
+  object-fit:contain;
+}
+.brand-title{
+  font-size:33px;
+  font-weight:800;
+  line-height:1.05;
+}
+.brand-subtitle{
+  color:var(--purple);
+  font-size:23px;
+  margin-top:5px;
+}
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+.sparkle{
+  color:var(--purple);
+  font-size:35px;
+  line-height:1;
+}
+.menu-button{
+  border:0;
+  background:transparent;
+  width:54px;
+  height:54px;
+  padding:7px;
+}
+.menu-button img{width:100%;height:100%}
+
+/* ---------- 4. Slide-out navigation ---------- */
+.nav-panel{
+  position:fixed;
+  inset:0 0 0 auto;
+  width:min(390px,92vw);
+  background:#fff;
+  box-shadow:-15px 0 40px rgba(20,10,40,.18);
+  z-index:100;
+  transform:translateX(105%);
+  transition:transform .28s ease;
+  padding:28px;
+  overflow:auto;
+}
+.nav-panel.open{transform:translateX(0)}
+.nav-close{
+  float:right;
+  border:0;
+  background:var(--purple-soft);
+  color:var(--purple);
+  width:42px;height:42px;border-radius:8px;
+  font-size:25px;
+}
+.nav-panel h2{margin:60px 0 18px;color:var(--purple-dark)}
+.nav-link{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px;
+  border-radius:8px;
+  margin:6px 0;
+  font-weight:700;
+}
+.nav-link:hover{background:var(--purple-soft)}
+.nav-link img{width:32px;height:32px}
+.nav-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(20,10,35,.42);
+  z-index:90;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .28s ease;
+}
+.nav-overlay.open{opacity:1;pointer-events:auto}
+
+/* ---------- 5. Home hero section ---------- */
+.hero{
+  min-height:412px;
+  background:
+    linear-gradient(90deg,rgba(28,11,49,.98) 0%,rgba(40,17,65,.92) 36%,rgba(35,14,51,.20) 72%,rgba(0,0,0,.02) 100%),
+    url("IMAGES/hero.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+}
+.hero-content{
+  width:min(620px,90%);
+  margin-left:7%;
+  color:#fff;
+  padding:55px 0;
+}
+.hero h1{
+  font-size:55px;
+  line-height:1.08;
+  margin:0 0 22px;
+  letter-spacing:-1.5px;
+}
+.hero h1 span{color:#a66bff}
+.hero p{
+  font-size:22px;
+  line-height:1.6;
+  margin:0;
+  max-width:600px;
+}
+
+/* ---------- 6. Home feature cards ---------- */
+.feature-grid{
+  max-width:1335px;
+  margin:42px auto 65px;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:28px;
+}
+.feature-card{
+  background:#fff;
+  border-radius:17px;
+  min-height:410px;
+  padding:34px 28px 27px;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.feature-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(38,18,70,.12);
+}
+.feature-icon{
+  width:116px;height:116px;
+  object-fit:contain;
+  margin:0 auto 18px;
+}
+.feature-card h2{
+  font-size:25px;
+  line-height:1.25;
+  margin:0 0 14px;
+}
+.feature-card p{
+  color:#3e3b49;
+  font-size:18px;
+  margin:0 0 22px;
+}
+.feature-card .primary-btn{margin-top:auto}
+
+/* ---------- 7. Buttons ---------- */
+.primary-btn,.secondary-btn,.danger-btn{
+  border:0;
+  border-radius:7px;
+  padding:13px 22px;
+  font-weight:750;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  transition:filter .15s ease,transform .15s ease;
+}
+.primary-btn{background:var(--purple);color:#fff}
+.secondary-btn{background:#eee9f6;color:#3f2c55}
+.danger-btn{background:var(--danger);color:#fff}
+.primary-btn:hover,.secondary-btn:hover,.danger-btn:hover{filter:brightness(.95)}
+.primary-btn:active,.secondary-btn:active,.danger-btn:active{transform:translateY(1px)}
+.icon-btn img{width:20px;height:20px;object-fit:contain}
+
+/* ---------- 8. Internal pages ---------- */
+.page-main{
+  max-width:1320px;
+  margin:0 auto;
+  padding:45px 22px 70px;
+}
+.page-heading{
+  margin-bottom:28px;
+}
+.page-heading h1{
+  margin:0;
+  font-size:40px;
+  color:var(--purple-dark);
+}
+.page-heading p{
+  color:var(--muted);
+  margin:8px 0 0;
+}
+.panel{
+  background:#fff;
+  border-radius:15px;
+  box-shadow:var(--shadow);
+  padding:28px;
+  margin-bottom:25px;
+}
+.panel h2{margin:0 0 20px;font-size:24px}
+
+/* ---------- 9. Forms ---------- */
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-weight:750}
+.field input,.field select{
+  width:100%;
+  min-height:47px;
+  border:1px solid #d8d1e1;
+  border-radius:7px;
+  padding:10px 12px;
+  background:#fff;
+  outline:none;
+}
+.field input:focus,.field select:focus{
+  border-color:var(--purple);
+  box-shadow:0 0 0 3px rgba(93,34,189,.10);
+}
+.form-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+/* ---------- 10. Feedback messages ---------- */
+.feedback{
+  display:none;
+  margin:18px 0 0;
+  padding:13px 15px;
+  border-radius:8px;
+  font-weight:700;
+}
+.feedback.show{display:block}
+.feedback.success{background:#eaf7ef;color:var(--success)}
+.feedback.error{background:#fdecec;color:var(--danger)}
+.feedback.info{background:var(--purple-soft);color:var(--purple-dark)}
+
+/* ---------- 11. Search/filter/utility toolbar ---------- */
+.toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+}
+.toolbar input,.toolbar select{
+  min-height:44px;
+  border:1px solid #d8d1e1;
+  border-radius:7px;
+  padding:9px 12px;
+  background:#fff;
+}
+.toolbar .grow{flex:1 1 260px}
+
+/* ---------- 12. Data tables ---------- */
+.table-wrap{overflow:auto}
+.data-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:760px;
+}
+.data-table th,.data-table td{
+  padding:13px 12px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+  vertical-align:top;
+}
+.data-table th{
+  background:#faf8fd;
+  color:var(--purple-dark);
+  font-size:14px;
+}
+.data-table tbody tr:hover{background:#fcfaff}
+.table-actions{display:flex;gap:7px;flex-wrap:wrap}
+.small-btn{
+  border:0;
+  border-radius:6px;
+  padding:7px 10px;
+  font-weight:700;
+}
+.small-edit{background:#eee7ff;color:var(--purple)}
+.small-delete{background:#fde8e8;color:var(--danger)}
+.empty-row{text-align:center;color:var(--muted);padding:30px!important}
+
+/* ---------- 13. Footer ---------- */
+.site-footer{
+  text-align:center;
+  color:#6a6473;
+  padding:20px;
+  font-size:14px;
+}
+
+/* ---------- 14. Responsive design ---------- */
+@media (max-width:1050px){
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:46px}
+}
+@media (max-width:720px){
+  .site-header{height:105px;padding:0 18px}
+  .brand{gap:10px}
+  .brand-logo{width:58px;height:58px}
+  .brand-title{font-size:21px}
+  .brand-subtitle{font-size:15px}
+  .header-actions{gap:8px}
+  .sparkle{font-size:25px}
+  .menu-button{width:45px;height:45px}
+  .hero{min-height:480px}
+  .hero-content{margin-left:7%;padding:40px 0}
+  .hero h1{font-size:39px}
+  .hero p{font-size:17px}
+  .feature-grid{grid-template-columns:1fr;gap:18px;margin-top:25px}
+  .feature-card{min-height:0}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .page-main{padding:30px 15px 55px}
+  .page-heading h1{font-size:31px}
+  .panel{padding:20px}
+}
